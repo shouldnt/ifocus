@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'elegantly and modest';
+    src: url('elegantlyandmodest-Regular.eot');
+    src: url('elegantlyandmodest-Regular.eot?#iefix') format('embedded-opentype'),
+        url('elegantlyandmodest-Regular.woff2') format('woff2'),
+        url('elegantlyandmodest-Regular.woff') format('woff'),
+        url('elegantlyandmodest-Regular.ttf') format('truetype'),
+        url('elegantlyandmodest-Regular.svg#elegantlyandmodest-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+

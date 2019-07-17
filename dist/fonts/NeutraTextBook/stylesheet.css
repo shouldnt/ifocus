@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Neutra Text';
+    src: url('NeutraText-Book.eot');
+    src: url('NeutraText-Book.eot?#iefix') format('embedded-opentype'),
+        url('NeutraText-Book.woff2') format('woff2'),
+        url('NeutraText-Book.woff') format('woff'),
+        url('NeutraText-Book.ttf') format('truetype'),
+        url('NeutraText-Book.svg#NeutraText-Book') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+

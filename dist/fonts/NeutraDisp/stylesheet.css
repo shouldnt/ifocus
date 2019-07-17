@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Neutra Display';
+    src: url('NeutraDisp-Medium.eot');
+    src: url('NeutraDisp-Medium.eot?#iefix') format('embedded-opentype'),
+        url('NeutraDisp-Medium.woff2') format('woff2'),
+        url('NeutraDisp-Medium.woff') format('woff'),
+        url('NeutraDisp-Medium.ttf') format('truetype'),
+        url('NeutraDisp-Medium.svg#NeutraDisp-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neutra Display';
+    src: url('NeutraDisp-Light.eot');
+    src: url('NeutraDisp-Light.eot?#iefix') format('embedded-opentype'),
+        url('NeutraDisp-Light.woff2') format('woff2'),
+        url('NeutraDisp-Light.woff') format('woff'),
+        url('NeutraDisp-Light.ttf') format('truetype'),
+        url('NeutraDisp-Light.svg#NeutraDisp-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neutra Display';
+    src: url('NeutraDisp-Bold.eot');
+    src: url('NeutraDisp-Bold.eot?#iefix') format('embedded-opentype'),
+        url('NeutraDisp-Bold.woff2') format('woff2'),
+        url('NeutraDisp-Bold.woff') format('woff'),
+        url('NeutraDisp-Bold.ttf') format('truetype'),
+        url('NeutraDisp-Bold.svg#NeutraDisp-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+

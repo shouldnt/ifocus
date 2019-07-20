@@ -1,0 +1,48 @@
+.site-footer 
+	h5 
+		font-size: 28px
+		font-weight: 600
+	h4 
+		font-size: 60px
+	h6
+		font-size: 20px
+		color: #333
+
+	p 
+		font-size: 20px
+		color: #333
+		margin-bottom: 0
+
+	a 
+		display: table
+		position: relative
+		color: #333
+		&:before 	
+			content: ''
+			position: absolute
+			top: 100%
+			width: 0% 
+			left: 0
+			height: 1px
+			background: #333
+			transition: all .3s ease-in-out
+
+		&:hover 
+			&:before 
+
+				width: 100%
+	
+	.goto-top	
+		display: table
+		margin-left: auto
+		margin-right: auto
+		margin-top: 200px
+		cursor: pointer
+		padding-bottom: 50px
+		span 
+			display: block
+			width: 40px
+			height: 40px
+			border-top: 1px solid #333
+			border-right: 1px solid #333
+			transform: rotate(-45deg)

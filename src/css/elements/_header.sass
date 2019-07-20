@@ -19,6 +19,7 @@
 		transform: skewX(-25deg)
 		margin-left: 20px
 		margin-right: 20px
+		transition: background 1s ease-in-out
 	.logo
 	 	max-width: 50px
 	 	img 
@@ -30,6 +31,7 @@
 		display: block
 		font-size: 15px
 		position: relative
+		transition: color 1s ease-in-out
 		&:before 
 			content: ''
 			position: absolute 
@@ -43,3 +45,12 @@
 			transition: all .3s ease-in-out
 		&:hover:before
 			transform: none
+
+
+.site-header._black .site-header-block
+	.splash
+		background: #333
+	a 
+		color: #333
+		&:before 
+			background: #333

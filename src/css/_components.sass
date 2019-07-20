@@ -1,403 +1,44 @@
 @import 'components/fixedThumb'
 
 
-.section._space-default
-	padding-top: 120px
-	padding-bottom: 118px
-	@media (max-width: 767.82px)
-		padding-top: 40px
-		padding-bottom: 50px
-
-.section._space-small
-	padding-top: 40px
-	padding-bottom: 50px
-
-.bg-yellow
-	background-color: $primary-yellow-color
-.bg-red
-	background-color: $primary-red-color
-
-.bg-grey
-	background: #f4f4f4
-
-.site-btn
-	height: 50px
-	line-height: 50px 
-	font-size: 13px
-	display: table
-	padding: 0 22px
-	border-radius: 2px
-	font-weight: 500
-	border: 0
-	transition: all .3s ease-in-out
-	&._uppercase
-		text-transform: uppercase
-.site-btn-white
-	background: white
-	color: $primary-red-color
-	&:hover 
-		background: $primary-red-color
-		color: $primary-yellow-color
-
-
-.site-btn-red
-	background: $primary-red-color
-	color: $primary-yellow-color
-	&:hover 
-		background: white
-		color: $primary-red-color
-
-.site-btn-yellow 
-	background: $primary-yellow-color
-	color: #fff
-	&:hover
-		background: $primary-red-color
-		color: $primary-yellow-color
-
-
-
-.title__
-	h3 
-		font-size: 36px
-		color: $primary-red-color
-		font-weight: bold
-		text-transform: uppercase
-		margin-bottom: 0
-		span 
-			color: $primary-yellow-color
-
-		@media (max-width: 767.82px)
-			font-size: 30px
-
-		@media (max-width: 575.82px)
-			font-size: 25px
-	&._yellow-white h3
-		color: #fff
-		span 
-			color: $primary-yellow-color
-
-	&._white-red h3 
-		color: $primary-red-color
-		span 
-			color: #fff
-
-
-.deco-pattern
-	display: flex
-	justify-content: center
-	align-items: center
-	._1, ._3
-		width: 50px
-		height: 2px
-		background: $primary-yellow-color
-	._2 
-		width: 13px
-		height: 13px
-		border: 2px solid #d0921e
-		border-radius: 10px
-		margin-left: 10px
-		margin-right: 10px
-
-
-	&._space-default
-		margin-top: 25px
-		margin-bottom: 35px
-
-	&._line-red
-		._1, ._3 
-			background: $primary-red-color
-
-	&._all-white
-		._1, ._3
-			background: #fff
-		._2
-			border-color: #fff
-
-
-
-// form components
-.form-group
-	margin-bottom: 30px
-
-.form-control._1
-	border: none
-	font-size: 14px
-	height: 50px
-	padding: 0 15px
-	border-radius: 2px
-
-textarea.form-control._1
-	height: auto
-	padding: 15px
-
-.niceSelect__._1 .nice-select
-	float: none
-	display: block
-	width: 100%
-	height: 50px
-	border: none
-	border-radius: 2px
-	line-height: 50px
-	.list 
-		border-radius: 2px
-		min-width: 100%
-
-
-
-.date-component
+.ham
 	position: relative
-	.ic 
-		pointer-events: none
+	width: 30px
+	height: 30px
+	cursor: pointer
+	div
 		position: absolute
 		top: 50%
 		left: 0
 		width: 100%
+		height: 3px
 		transform: translateY(-50%)
-		color: $primary-red-color
-		font-size: 13px
-		font-weight: 500
-		padding: 0 10px
-		display: flex
-		align-items: center
-		img
-			max-width: 20px
-			margin-right: 5px
-
-	&.selected .ic 
-		display: none
-
-
-.big-search
-	display: flex
-	button
-		background: #fff
-		border: none
-		line-height: 50px
-		height: 50px
-		width: 50px
-		flex-shrink: 0
-		text-align: center
-	.form-control._1 
-		padding-left: 0
-
-
-
-// bootstrap component
-
-.accordion
-	.card
-		margin-bottom: 10px
-		border: 0
-	.card-header
-		border-radius: 2px!important
-		border-bottom: 0
-		padding: 0
-	.card-body 
-		padding-left: 0
-		padding-right: 0
-		font-size: 14px
-		color: #676767
-		text-align: justify
-	.btn-link 
-		font-size: 15px
-		color: #676767
-		position: relative
-		display: block
-		width: 100%
-		text-align: left
-		padding: 20px
-		padding-left: 50px
-		white-space: normal
-		&:hover, &:focus
-			text-decoration: none
-
+		transition: all .3s ease-in-out
 		&:before, &:after
 			content: ''
 			position: absolute
-			top: 50%
-			left: 25px
-			transform: translate(-50%, -50%)
-			width: 10px
-			height: 2px
-			background: #707070
-		&:after
-			transform: translate(-50%, -50%) rotate(90deg)
-
-		&:not(.collapsed)
-			background: $primary-red-color
-			color: #fff
-			&:before, &:after
-				background: #fff
-
-
-
-
-
-
-//big component
-
-.subpage-banner
-	height: 300px
-	background: #542322
-	text-align: center
-	h3
-		font-size: 36px
-		color: #fff 
-		padding-top: 120px
-		margin-bottom: 40px
-	ul 
-		display: flex
-		justify-content: center
-		li 
-			font-size: 14px
-			margin-right: 5px
-
-			a, span 
-				display: block
-			a
-				color: $primary-yellow-color
-
-			span 
-				color: #fff
-			
-
-
-
-
-.card-1
-	.fixed-thumb
-		padding-bottom: 59.459%
-		.overlay
-			background: rgba($primary-yellow-color, .8)
-			position: absolute
-			z-index: 2
-			top: 0
-			left: 0
 			width: 100%
 			height: 100%
-			display: flex
-			justify-content: center
-			align-items: center
-			pointer-events: none
-			opacity: 0
+			top: 0
+			left: 0
+			background: #fff
 			transition: all .3s ease-in-out
-			.material-icons
-				color: #fff
-				font-size: 36px
 
-	.text 
-		padding: 0 30px
-		padding-top: 22px
-		padding-bottom: 30px
-		background: #f4f4f4
-		h6 
-			margin-bottom: 25px
-			color: $primary-red-color
-			transition: all .3s ease-in-out
-		p 
-			margin-bottom: 0
+	&.active
+		div 
+			&:before, &:after 
+				background: #333
+		div:nth-of-type(2)
+			&:before, &:after
+				width: 0
+		div:first-child
+			top: 0
+			transform: translateY(-50%) rotate(45deg)
+		div:last-child
+			top: 0
+			transform: translateY(-50%) rotate(-45deg)
 
-	&:hover
-		.fixed-thumb .overlay 
-			opacity: 1
-		h6 
-			color: $primary-yellow-color
-
-
-.card-1-row
-	> * 
-		margin-bottom: 28px
-
-
-.card-blog
-	border-radius: 3px
-	overflow: hidden
-	box-shadow: 0 2px 3px rgba(black, .1)
-	transition: all .3s ease-in-out
-	&:hover
-		box-shadow: 0 4px 8px rgba(black, .1)
-	.fixed-thumb
-		padding-bottom: 67.567%
-	.text 
-		padding: 0 25px
-		padding-top: 25px
-		background: #fff
-		h6 
-			color: $primary-red-color
-			font-weight: 500
-			margin-bottom: 18px
-
-		.date
-			display: flex
-			align-items: center
-			font-size: 14px
-			color: #676767
-			margin-bottom: 20px
-			i.material-icons
-				margin-right: 10px
-				font-size: 16px
-				color: $primary-yellow-color
-		.hr
-			width: 100%
-			height: 1px 
-			background: #e5e5e5
-			margin-bottom: 17px
-
-		.text-foot 
-			p 
-				display: flex
-				align-items: center
-				font-size: 14px
-				color: #8b8b8b
-				i.material-icons
-					font-size: 18px
-					margin-right: 10px
-				a 
-					color: #8b8b8b
-
-
-.step-arrow-component
-	.nav
-		display: flex
-		> li 
-			width: calc(100% / 4) 
-			a 
-				display: block
-				color: $primary-yellow-color
-				background: $primary-red-color
-				font-size: 36px
-				font-weight: bold
-				text-transform: uppercase
-				text-align: right
-				padding-right: 60px
-				position: relative
-				height: 120px
-				line-height: 120px
-				&:before
-					position: absolute
-					content: ''
-					border: 60px solid transparent
-					border-left-color: $primary-red-color
-					left: 0
-					// transform: translateX(-50%)
-
-			a._1 
-				z-index: 4
-				&:before 
-					display: none
-
-			a._2 
-				z-index: 3
-				background: #8c502a
-				&:before 
-					border-left-color: $primary-red-color
-			a._3 
-				z-index: 2
-				background: #a36c35
-				&:before 
-					border-left-color: #8c502a
-			a._4 
-				z-index: 1
-				background: #ba8840
-				&:before 
-					border-left-color: #a36c35
+	div:first-child 
+		top: calc(50% - 9px)
+	div:last-child 
+		top: calc(50% + 9px)

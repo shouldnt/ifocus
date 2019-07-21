@@ -4,6 +4,20 @@ window.currentSlide = 0;
 
 $(document).ready(function() {
 
+	setTimeout(function() {
+		$('.loading-css').addClass('active');
+
+		TweenMax.to('.loading-css', 1, {
+			autoAlpha: 0,
+			delay: 1.5,
+			onComplete() {
+				TweenMax.set('.loading-css', {
+					display: 'none'
+				})
+			}
+		})
+	}, 2000)
+
 	HomeSlide();
 
 	var controller = new ScrollMagic.Controller();

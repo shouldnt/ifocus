@@ -559,6 +559,7 @@ HomeSlide.prototype.animateIn = function(index) {
 	TweenMax.set(_this.obj, {
 		trans: 0
 	})
+	window.scrollTo(0, 0);
 
 	let img = new Image();
 	img.onload = function(_img){

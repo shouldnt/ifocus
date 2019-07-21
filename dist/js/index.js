@@ -9802,6 +9802,20 @@ window.currentSlide = 0;
 
 $(document).ready(function () {
 
+	setTimeout(function () {
+		$('.loading-css').addClass('active');
+
+		TweenMax.to('.loading-css', 1, {
+			autoAlpha: 0,
+			delay: 1.5,
+			onComplete: function onComplete() {
+				TweenMax.set('.loading-css', {
+					display: 'none'
+				});
+			}
+		});
+	}, 2000);
+
 	(0, _slide2.default)();
 
 	var controller = new ScrollMagic.Controller();
@@ -10392,6 +10406,7 @@ HomeSlide.prototype.animateIn = function (index) {
 	TweenMax.set(_this.obj, {
 		trans: 0
 	});
+	window.scrollTo(0, 0);
 
 	var img = new Image();
 	img.onload = function (_img) {

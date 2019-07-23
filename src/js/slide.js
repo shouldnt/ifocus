@@ -27,6 +27,7 @@ function HomeSlide() {
 HomeSlide.prototype.init = function() {
 
 	$('body').addClass('home-page');
+	window.scrollTo(0, 0);
 
 	var _this = this;
 	_this.$slideContainer = $('.js-home-slider');

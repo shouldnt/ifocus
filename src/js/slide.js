@@ -25,9 +25,9 @@ function HomeSlide() {
 }
 
 HomeSlide.prototype.init = function() {
-
-	$('body').addClass('home-page');
+	
 	window.scrollTo(0, 0);
+	$('body').addClass('home-page');
 
 	var _this = this;
 	_this.$slideContainer = $('.js-home-slider');

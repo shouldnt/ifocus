@@ -106,6 +106,22 @@ HomeSlide.prototype.initEvent = function() {
 			$(document).trigger("SHOW_SLIDE", );
 		}
 	})
+
+	$('.js-logo').click(function(e) {
+		e.preventDefault();
+		if(!_this.isSlideActive) {
+			$('.js-slide-toggle').trigger('click');
+		}
+	})
+
+	$('.js-about').click(function() {
+		if(_this.isSlideActive) {
+			$('.js-slide-toggle').trigger('click');
+		}
+		$('html, body').animate({
+            scrollTop: $("#footer").offset().top
+        }, 2000);
+	})
 }
 
 HomeSlide.prototype._onScroll = function(e) {

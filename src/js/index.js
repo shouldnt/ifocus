@@ -6,16 +6,33 @@ $(document).ready(function() {
 
 	setTimeout(function() {
 		$('.loading-css').addClass('active');
-
-		TweenMax.to('.loading-css', 1, {
-			autoAlpha: 0,
-			delay: 1.5,
+		TweenMax.to('.loading-bar', .5, {
+			// opacity: 0,
+			scale: 0
+		})
+		TweenMax.fromTo('.loading-bar-full', 1, {
+			scale: 0
+		}, {
+			scale: 1,
 			onComplete() {
-				TweenMax.set('.loading-css', {
-					display: 'none'
+				TweenMax.to('.loading-css .logo', .3, {
+					opacity: 0, 
+					scale: 0
+				})
+
+				TweenMax.to('.loading-css .bg-top, .loading-css .bg-bottom', 1, {
+					height: 0,
+					delay: .2,
+					ease: Expo.easeOut,
+					onComplete() {
+						TweenMax.set('.loading-css', {
+							display: 'none'
+						})
+					}
 				})
 			}
 		})
+		
 	}, 2000)
 
 	HomeSlide();

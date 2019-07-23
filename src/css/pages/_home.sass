@@ -77,12 +77,15 @@
 			font-size: 45px
 			color: #fff
 			margin-bottom: 0
+			letter-spacing: 1px
 
 	.slide_description
 		margin-bottom: 25px
 		p 
 			margin-bottom: 0px
 			color: #fff
+			font-weight: bold
+			letter-spacing: 1px
 
 	.slide_share
 		display: flex
@@ -117,13 +120,14 @@
 			width: 160px
 			height: 160px
 			border-radius: 50%
-			background: #fff
+			background: rgba(white, .6)
 			transition: all .5s ease-in-out
 		span 
 			position: relative
 			font-size: 18px
+			font-weight: bold
 			text-transform: uppercase
-			color: #353535
+			color: black
 			transition: all .3s ease-in-out
 			transform: translateX(-10px)
 
@@ -147,7 +151,7 @@
 			&:before 
 				animation-name: bounceIn
 				animation-duration: 1s
-				background: rgba(#fff200, .6)
+				background: black
 			
 			&:after
 				border-top-color: #fff
@@ -204,7 +208,29 @@
 	.num
 		font-size: 15.7px
 		color: #fff
-
+	
+	.nav-prev 
+		padding-left: 24px
+	.nav-prev:after 
+		content: ''
+		bottom: -1
+		left: -2
+		position: absolute
+		border-top: 10px solid transparent
+		border-right: 20px solid #fff
+		border-bottom: 0
+		border-left: 0
+	.nav-next 
+		padding-right: 24px
+	.nav-next:after 
+		content: ''
+		bottom: -1
+		right: -2
+		position: absolute
+		border-top: 10px solid transparent
+		border-left: 20px solid #fff
+		border-bottom: 0
+		border-right: 0
 
 
 .video-player-frame
@@ -327,6 +353,13 @@
 		top: 17px
 		transform: translate(-50%, 0)
 
+
+	.home-slide-nav
+		width: 100%
+		padding: 0 15px
+		.nav-prev, .nav-next
+			width: 230px
+
 @media (max-width: 767.82px)
 	
 	.home-slide-container 
@@ -369,3 +402,9 @@
 		max-width: 400px
 		margin-left: auto
 		margin-right: auto
+
+	.home-slide-nav
+		.nav-prev, .nav-next
+			width: calc(100% / 2 - 50px)
+			.text 
+				opacity: 0

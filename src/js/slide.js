@@ -25,7 +25,7 @@ function HomeSlide() {
 }
 
 HomeSlide.prototype.init = function() {
-	
+
 	window.scrollTo(0, 0);
 	$('body').addClass('home-page');
 
@@ -120,7 +120,7 @@ HomeSlide.prototype.initEvent = function() {
 			$('.js-slide-toggle').trigger('click');
 		}
 		$('html, body').animate({
-            scrollTop: $("#footer").offset().top
+            scrollTop: $("#footer").offset().top - 100
         }, 2000);
 	})
 }

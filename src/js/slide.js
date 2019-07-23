@@ -120,7 +120,7 @@ HomeSlide.prototype.initEvent = function() {
 			$('.js-slide-toggle').trigger('click');
 		}
 		$('html, body').animate({
-            scrollTop: $("#footer").offset().top - 100
+            scrollTop: $("#footer").offset().top - 200
         }, 2000);
 	})
 }

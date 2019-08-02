@@ -10430,6 +10430,9 @@ HomeSlide.prototype.animateIn = function (index) {
 	_this.animating = true;
 	var current = _this.current;
 
+	_this.videoManager.hide(current);
+	_this.videoManager.show(index);
+
 	var currentSlideEl = _this.$slides[current];
 	currentSlideEl.classList.remove('slide-active');
 

@@ -11,7 +11,7 @@ export default function() {
 		$('.js-slide-toggle').trigger('click');
 	})
 
-	return homeSlide;
+	return homeSlide; 
 }
 // mouse scroll direction;
 var SCROLLDOWN = 'mouse scrolling down';
@@ -46,7 +46,8 @@ HomeSlide.prototype.init = function() {
 	_this.current = 0;
 	_this.$slides = _this.$slideContainer.find('.home-slide-item');
 	_this.$images = _this.$slides.find('img.bg-img');
-
+	_this.videoManager = new VideoBg();
+	_this.videoManager.show(_this.current);
 	_this.textureArr = [];
 
 
@@ -60,8 +61,6 @@ HomeSlide.prototype.init = function() {
 	})
 
 	$(_this.$slides[0]).addClass('slide-active');
-
-	
 
 }
 
@@ -388,6 +387,9 @@ HomeSlide.prototype.nextSlide = function() {
 
 
 		_this.animating = true;
+
+		_this.videoManager.hide(_this.current);
+		_this.current + 1 < _this.$slides.length ? this.videoManager.show(_this.current + 1) : this.videoManager.show(0);
 
 		TweenMax.set($currentFxTargets, {
 			transformOrigin: "bottom left",
@@ -925,5 +927,36 @@ VideoFrame.prototype.initEvent = function() {
 		})
 		
 	})
+
+
+
 }
 
+function VideoBg() {
+	this.$videoContainer = $('.home-slide-item .bg-video');
+	this.$videos = this.$videoContainer.find('video');
+
+	this.coverSize = coverSize(16 , 9, $(window).width(), $(window).height());
+	console.log(this.coverSize);
+
+	this.$videoContainer.css({width: this.coverSize[0], height: this.coverSize[1]});
+}
+VideoBg.prototype.hide = function(index) {
+	var _this = this;
+	TweenMax.to(_this.$videos[index], .5, {
+		opacity: 0,
+		onComplete: function() {
+			_this.$videos[index].pause();
+		}
+	})
+}
+VideoBg.prototype.show = function(index) {
+	var _this = this;
+	TweenMax.to(_this.$videos[index], .5, {
+		opacity: 1,
+		delay: 1.2,
+		onComplete: function() {
+			_this.$videos[index].play();
+		}
+	})
+}

@@ -10730,12 +10730,18 @@ VideoFrame.prototype.initEvent = function () {
 function VideoBg() {
 	this.$videoContainer = $('.home-slide-item .bg-video');
 	this.$videos = this.$videoContainer.find('video');
+	this.updateSize();
+	var _this = this;
 
+	$(window).on('resize', function () {
+		_this.updateSize();
+	});
+}
+VideoBg.prototype.updateSize = function () {
 	this.coverSize = coverSize(16, 9, $(window).width(), $(window).height());
-	console.log(this.coverSize);
 
 	this.$videoContainer.css({ width: this.coverSize[0], height: this.coverSize[1] });
-}
+};
 VideoBg.prototype.hide = function (index) {
 	var _this = this;
 	TweenMax.to(_this.$videos[index], .5, {

@@ -10052,6 +10052,9 @@ HomeSlide.prototype.prevSlide = function () {
 	var current = _this.current;
 	var prev = _this.current > 0 ? _this.current - 1 : _this.$slides.length - 1;
 
+	_this.videoManager.hide(current);
+	_this.videoManager.show(prev);
+
 	var currentSlideEl = _this.$slides[current];
 	var $currentFxTargets = $(currentSlideEl).find('.fx-target');
 	var $currentFxTargetsScale = $(currentSlideEl).find('.fx-target-scale');

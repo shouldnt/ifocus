@@ -5,7 +5,15 @@ export default function() {
 	var player = new VideoFrame();
 
 	$('.js-fx-target').on('mouseenter', function() {
-		window.currentSlide = parseInt($(this).attr('data-index'), 10) - 1;
+		window.currentSlide = parseInt($(this).attr('data-index'), 10) - 1
+
+		$(this).addClass('hover');
+		$(this).find('video')[0].play();
+	});
+	$('.js-fx-target').on('mouseleave', function() {
+
+		$(this).removeClass('hover');
+		$(this).find('video')[0].pause();
 	});
 	$('.js-fx-target').on('click', function() {
 		$('.js-slide-toggle').trigger('click');

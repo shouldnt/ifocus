@@ -336,10 +336,25 @@
 		h2
 			font-size: 22px
 			font-weight: bold
+
+
 	.video-thumb
 		position: relative
 		z-index: 1
 		transition: all .5s ease-out
+		.fixed-thumb
+			padding-bottom: 56.25%
+		video 
+			z-index: 2
+			opacity: 0
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			transition: all .2s ease-in-out
+
+
 
 	&:hover 
 		.video-numb
@@ -350,6 +365,9 @@
 
 		.video-thumb 
 			transform: scale(1.2)
+
+			video 
+				opacity: 1
 
 
 @media (max-width: 991px)
@@ -384,18 +402,20 @@
 			margin-bottom: 17px
 			h2
 				font-size: 36px
-
-
-@media (max-width: 575.82px)
 	.home-slide-container 
-		padding-right: 100px
-		.slide_title
-			h2 
-				font-size: 28px
+		padding-right: 0
+		.slide_description 
+			p
+				display: none
+
+		.slide_share
+			display: none
+
 		.slide_play
 			width: 100px
 			height: 100px
-			top: 50px
+			top: 0
+			position: relative
 			&:before 
 				width: 100px
 				height: 100px
@@ -407,6 +427,19 @@
 			&:hover
 				&:after 
 					right: 29px
+
+
+	.page-ham
+		top: 6px
+		left: 15px
+		transform: none
+
+@media (max-width: 575.82px)
+	.home-slide-container 
+		.slide_title
+			h2 
+				font-size: 28px
+		
 
 
 	.video-list

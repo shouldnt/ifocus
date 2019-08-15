@@ -54,7 +54,7 @@ $(document).ready(function() {
 			y: 0
 		})
 
-		var scene = new ScrollMagic.Scene({triggerElement: "#" + id})
+		var scene = new ScrollMagic.Scene({triggerElement: "#" + id, triggerHook: 0.7})
 					.setTween(tween)
 					// .addIndicators() // add indicators (requires plugin)
 					.addTo(controller);

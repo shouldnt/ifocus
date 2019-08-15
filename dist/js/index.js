@@ -9850,7 +9850,7 @@ $(document).ready(function () {
 			y: 0
 		});
 
-		var scene = new ScrollMagic.Scene({ triggerElement: "#" + id }).setTween(tween)
+		var scene = new ScrollMagic.Scene({ triggerElement: "#" + id, triggerHook: 0.7 }).setTween(tween)
 		// .addIndicators() // add indicators (requires plugin)
 		.addTo(controller);
 	});
@@ -10021,6 +10021,31 @@ HomeSlide.prototype.initEvent = function () {
 		$('html, body').animate({
 			scrollTop: $("#footer").offset().top
 		}, 2000);
+	});
+
+	_this.openMoreInfo();
+};
+
+HomeSlide.prototype.openMoreInfo = function () {
+	var _this = this;
+	$('.more-info-click').click(function (e) {
+		e.preventDefault();
+
+		var $item = $(this).closest('.home-slide-container').clone();
+
+		$item.find('.more-info, .slide_play, .bg-img, .nav-content').remove();
+
+		$('.more-info-block .content').empty().append($item);
+		$('.more-info-block').fadeIn();
+
+		_this.scrollOff = true;
+	});
+
+	$('.close-info-click').click(function (e) {
+		e.preventDefault();
+		$('.more-info-block').fadeOut();
+
+		_this.scrollOff = false;
 	});
 };
 

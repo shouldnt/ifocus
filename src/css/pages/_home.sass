@@ -112,10 +112,19 @@
 			display: block
 			color: #fff
 			margin-left: 15px
+
 			&:hover
 				animation-name: bounceIn
 				animation-duration: 1s
-
+	
+	.more-info 
+		color: #fff
+		font-weight: 500
+		font-size: 18px
+		letter-spacing: 2px
+		text-decoration: underline
+		margin-bottom: 30px
+		display: block
 	.slide_play
 		position: absolute
 		display: block
@@ -355,20 +364,58 @@
 			transition: all .2s ease-in-out
 
 
-
+	
 	&:hover 
-		.video-numb
-			transform: translateY(120%)
+		@media (min-width: 768px)	
+			.video-numb
+				transform: translateY(120%)
 
-		.video-title
-			transform: translateY(-120%)
+			.video-title
+				transform: translateY(-120%)
 
-		.video-thumb 
-			transform: scale(1.2)
+			.video-thumb 
+				transform: scale(1.2)
 
-			video 
-				opacity: 1
-
+				video 
+					opacity: 1
+	
+.more-info-block 
+	display: block
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	background: rgba(#fff, .95)
+	z-index: 1000
+	padding: 20px
+	display: none
+	.content 
+		display: flex
+		align-items: center
+	@media (min-width: 768px)
+		display: none!important
+	.back-btn
+		position: relative
+		font-size: 12px
+		cursor: pointer
+		svg 
+			width: 25px
+			margin-right: 5px
+	.home-slide-container
+		.slide_header
+			color: black
+			margin-top: 80px
+		.slide_title h2
+			color: black
+		.slide_description p 
+			color: black
+			display: block!important
+		.slide_share 
+			display: flex!important
+			color: black
+			a 
+				color: black
 
 @media (max-width: 991px)
 
@@ -434,6 +481,26 @@
 		left: 15px
 		transform: none
 
+	.video-list
+		padding-top: 100px
+	.video-item 
+		position: relative
+		margin-bottom: 40px
+		.video-thumb
+			width: 50%
+		.video-numb
+			position: absolute
+			top: 0
+			left: 50%
+			padding-left: 10px
+		.video-title
+			position: absolute
+			width: 50%
+			padding-left: 10px
+			top: 40px
+			left: 50%
+
+
 @media (max-width: 575.82px)
 	.home-slide-container 
 		.slide_title
@@ -456,3 +523,12 @@
 			width: calc(100% / 2 - 50px)
 			.text 
 				opacity: 0
+
+
+	.video-item 
+		.video-numb
+			font-size: 15px
+		.video-title
+			top: 24px
+			h2
+				font-size: 14px

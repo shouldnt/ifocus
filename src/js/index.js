@@ -1,5 +1,6 @@
 
 import HomeSlide from './slide.js'
+import BehindScene from './behind-the-scene.js'
 window.currentSlide = 0;
 
 $(document).ready(function() {
@@ -35,7 +36,9 @@ $(document).ready(function() {
 		
 	}, 2000)
 
-	HomeSlide();
+	$('.home-slider')[0] && HomeSlide();
+
+	$('.behind-the-scene-page')[0] && BehindScene();
 
 	var controller = new ScrollMagic.Controller();
 

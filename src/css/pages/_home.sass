@@ -337,8 +337,9 @@
 		left: 50%
 		top: 50%
 		transform: translate(-50%, -50%)
-		max-width: 100px
+		max-width: 300px
 		z-index: 2
+		z-index: 3
 	.video-numb
 		font-size: 22px
 		color: #333
@@ -360,8 +361,17 @@
 		transition: all .5s ease-out
 		.fixed-thumb
 			padding-bottom: 56.25%
+			&:before 
+				position: absolute
+				content: ''
+				top: 0
+				left: 0
+				width: 100%
+				height: 100%
+				background: rgba(black, .3)
+				z-index: 2 
 		video 
-			z-index: 2
+			z-index: 4
 			opacity: 0
 			position: absolute
 			top: 0

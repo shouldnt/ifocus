@@ -9799,6 +9799,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = function () {
 
 	$('.site-header').addClass('_black');
+	$('body').addClass('behind-the-scene');
 
 	$('.js-fx-target').on('mouseenter', function () {
 
@@ -9931,6 +9932,13 @@ $(document).ready(function () {
 		$('html, body').stop().animate({ scrollTop: 0 }, 500, 'swing', function () {
 			// alert("Finished animating");s
 		});
+	});
+
+	$('.js-search-toggle').click(function (e) {
+		e.stopPropagation();
+		e.preventDefault();
+
+		$(this).closest('.search-toggle').toggleClass('open');
 	});
 });
 

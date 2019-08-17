@@ -1,6 +1,7 @@
 export default(function() {
 
 	$('.site-header').addClass('_black');
+	$('body').addClass('behind-the-scene');
 
 	$('.js-fx-target').on('mouseenter', function() {
 

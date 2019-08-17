@@ -92,4 +92,11 @@ $(document).ready(function() {
 		   // alert("Finished animating");s
 		});
 	})
+
+	$('.js-search-toggle').click(function(e) {
+		e.stopPropagation();
+		e.preventDefault();
+
+		$(this).closest('.search-toggle').toggleClass('open');
+	})
 })

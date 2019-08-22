@@ -80,6 +80,15 @@
 }
 
 
+.loading-css .unlocking {
+	position: absolute;
+    top: 100%;
+    left: 50%;
+    color: #f8ef22;
+    transform: translate(-50%, 74px);
+    letter-spacing: 2px;
+}
+
 @keyframes scaleRepeat {
 	0% {
 		transform-origin: top left;

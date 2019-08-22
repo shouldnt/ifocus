@@ -96,7 +96,20 @@ $(document).ready(function() {
 	$('.js-search-toggle').click(function(e) {
 		e.stopPropagation();
 		e.preventDefault();
+		var searchContainer = $(this).closest('.search-toggle');
 
-		$(this).closest('.search-toggle').toggleClass('open');
+		if(searchContainer.hasClass('open')) {
+			searchContainer.removeClass('open');
+		} else {
+			searchContainer.addClass('open');
+			setTimeout(() => {searchContainer.find('input').focus()}, 300);
+		}
+	})
+
+	$('.site-header').on('mouseleave', function() {
+		var searchContainer = $('.search-toggle');
+
+			searchContainer.removeClass('open');
+		
 	})
 })

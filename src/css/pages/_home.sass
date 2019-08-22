@@ -10,6 +10,13 @@
 	width: 100%
 	height: 100%
 	z-index: 3
+	.logo-center
+		position: absolute
+		left: 50%
+		top: 40px
+		max-width: 60px
+		transform: translateX(-50%)
+		z-index: 3
 	._overlay 
 		position: absolute
 		top: 0
@@ -315,7 +322,37 @@
 	transform: translateY(-50%)
 
 	z-index: 200
+	.ct 
+		position: absolute
+		top: 50%
+		transform: translate(-10px, -50%)
+		left: 100%
+		padding-left: 30px
+		pointer-events: none
+		visibility: hidden
+		overflow: hidden
+		opacity: 0
+		transition: all .3s ease-in-out
+		ul 
+			background: rgba(#000, .5)
 
+			border-radius: 3px
+			padding: 5px 0
+		li > a
+			display: block
+			color: #fff
+			white-space: nowrap
+			padding: 5px 10px
+			font-weight: bold
+			&:hover 
+				color: $primary-color
+	&:hover 
+		.ct 
+			opacity: 1
+			overflow: visible
+			pointer-events: auto
+			visibility: visible
+			transform: translate(0px, -50%)
 
 .video-list 
 	padding-top: 250px
@@ -327,9 +364,9 @@
 		padding-left: 30px
 		padding-right: 30px
 
-	@media (min-width: 992px)
-		[class*="col-"]:nth-of-type(2n + 1)
-			transform: translateY(-40px)
+	// @media (min-width: 992px)
+	// 	[class*="col-"]:nth-of-type(2n + 1)
+	// 		transform: translateY(-40px)
 .video-item
 	margin-bottom: 70px
 	.logo 
@@ -434,6 +471,30 @@
 			a 
 				color: black
 
+
+@media (min-width: 1366px)
+	.home-slide-container 
+		width: 70vw
+		.slide_title 
+			h2
+				font-size: 4vw
+		.slide_description
+			p
+				font-size: 2vw
+		.slide_header
+			font-size: 1.5vw
+		.slide_share
+			font-size: 2vw
+		.slide_share-label
+			font-size: 2vw
+	.home-slide-nav 
+		width: 70vw
+		.text
+			font-size: 1.5vw
+		.nav-prev, .nav-next
+			width: 40%
+
+
 @media (max-width: 991px)
 
 	.home-slide-item
@@ -456,6 +517,18 @@
 		padding: 0 15px
 		.nav-prev, .nav-next
 			width: 230px
+
+
+	.page-ham 	
+		.ct
+			top: 100%
+			transform: translateY(10px)
+			left: 0
+			padding-left: 0
+			padding-top: 5px
+		&:hover 
+			.ct
+				transform: none
 
 @media (max-width: 767.82px)
 	

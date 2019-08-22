@@ -58,6 +58,7 @@
 					width: 230px
 					height: 40px
 					padding-left: 20px
+					pointer-events: auto
 				button
 					background: none
 					border: none
@@ -88,7 +89,7 @@
 		margin-right: 20px
 		transition: background 1s ease-in-out
 	.logo
-	 	max-width: 50px
+	 	max-width: 30px
 	 	img 
 	 		max-width: 100%
 	 	a:before 
@@ -131,6 +132,11 @@
 
 
 
+
+@media (min-width: 1366px)
+	.site-header-block 
+		a
+			font-size: 20px
 
 @media (max-width: 991.82px)
 	.site-header

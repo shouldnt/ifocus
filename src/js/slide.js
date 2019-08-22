@@ -104,15 +104,21 @@ HomeSlide.prototype.initEvent = function() {
 		_this.animateIn(window.currentSlide);
 	})
 
-	$('.js-slide-toggle').click(function() {
+	$('.js-slide-toggle').click(function(e) {
+		e.preventDefault();
+		e.stopPropagation();
 		if(_this.animating) return;
 		if(_this.isSlideActive) {
-			$(this).addClass('active');
+			$('.page-ham').addClass('active');
 			$(document).trigger("HIDE_SLIDE");
 		} else {
-			$(this).removeClass('active');
+			$('.page-ham').removeClass('active');
 			$(document).trigger("SHOW_SLIDE", );
 		}
+	})
+
+	$('.js-ham-click').click(function() {
+		$('.js-slide-toggle').trigger('click');
 	})
 
 	$('.js-logo').click(function(e) {
@@ -122,7 +128,9 @@ HomeSlide.prototype.initEvent = function() {
 		}
 	})
 
-	$('.js-about').click(function() {
+	$('.js-about').click(function(e) {
+		e.preventDefault();
+		e.stopPropagation();
 		if(_this.isSlideActive) {
 			$('.js-slide-toggle').trigger('click');
 		}

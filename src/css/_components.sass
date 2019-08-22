@@ -6,7 +6,7 @@
 	width: 30px
 	height: 30px
 	cursor: pointer
-	div
+	div:not(.ct)
 		position: absolute
 		top: 50%
 		left: 0
@@ -23,22 +23,34 @@
 			left: 0
 			background: #fff
 			transition: all .3s ease-in-out
-
+	&:hover
+		div:nth-of-type(1)
+			&:before, &:after
+				width: 0
+		div:nth-of-type(3)
+			&:before, &:after
+				width: 0
 	&.active
-		div 
+
+		div:not(.ct)
 			&:before, &:after 
 				background: #333
+			&:before 
+				top: -7px
+			&:after 
+				top: 7px
 		div:nth-of-type(2)
 			&:before, &:after
 				width: 0
 		div:first-child
 			top: 50% 
-			transform: translateY(-50%) rotate(45deg)
-		div:last-child
+			transform: translateY(-50%) rotate(90deg)
+			background: black
+		div:nth-of-type(3)
 			top: 50%
-			transform: translateY(-50%) rotate(-45deg)
+			transform: translateY(-50%) rotate(90deg)
 
 	div:first-child 
 		top: calc(50% - 9px)
-	div:last-child 
+	div:nth-of-type(3)
 		top: calc(50% + 9px)

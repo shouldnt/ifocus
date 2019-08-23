@@ -9793,43 +9793,77 @@ module.exports = g;
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+    value: true
 });
+function parseVideo(url) {
+    // - Supported YouTube URL formats:
+    //   - http://www.youtube.com/watch?v=My2FRPA3Gf8
+    //   - http://youtu.be/My2FRPA3Gf8
+    //   - https://youtube.googleapis.com/v/My2FRPA3Gf8
+    // - Supported Vimeo URL formats:
+    //   - http://vimeo.com/25451551
+    //   - http://player.vimeo.com/video/25451551
+    // - Also supports relative URLs:
+    //   - //player.vimeo.com/video/25451551
+
+    url.match(/(http:|https:|)\/\/(player.|www.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com))\/(video\/|embed\/|watch\?v=|v\/)?([A-Za-z0-9._%-]*)(\&\S+)?/);
+
+    if (RegExp.$3.indexOf('youtu') > -1) {
+        var type = 'youtube';
+    } else if (RegExp.$3.indexOf('vimeo') > -1) {
+        var type = 'vimeo';
+    }
+
+    return {
+        type: type,
+        id: RegExp.$6
+    };
+}
+function createVideo(url) {
+    // Returns an iframe of the video with the specified URL.
+    var videoObj = parseVideo(url);
+    var url = '';
+    if (videoObj.type == 'youtube') {
+        url = 'https://www.youtube.com/embed/' + videoObj.id;
+    } else if (videoObj.type == 'vimeo') {
+        url = 'player.vimeo.com/video/' + videoObj.id;
+    }
+    return url;
+}
 
 exports.default = function () {
 
-	$('.site-header').addClass('_black');
-	$('body').addClass('behind-the-scene');
+    $('.site-header').addClass('_black');
+    $('body').addClass('behind-the-scene');
 
-	$('.js-fx-target').on('mouseenter', function () {
+    // $('.js-fx-target').on('mouseenter', function() {
 
-		$(this).addClass('hover');
-		$(this).find('video')[0].play();
-	});
-	$('.js-fx-target').on('mouseleave', function () {
+    // 	$(this).addClass('hover');
+    // 	$(this).find('video')[0].play();
+    // });
+    // $('.js-fx-target').on('mouseleave', function() {
 
-		$(this).removeClass('hover');
-		$(this).find('video')[0].pause();
-	});
+    // 	$(this).removeClass('hover');
+    // 	$(this).find('video')[0].pause();
+    // });
 
-	$('.js-fx-target').click(function () {
+    $('.js-fx-target').click(function () {
 
-		var videoUrl = $(this).attr('video-url');
+        var videoUrl = $(this).attr('video-url');
+        $('#behind-scene-modal').find('iframe').attr('src', createVideo(videoUrl));
 
-		$(this).find('iframe').attr('src', videoUrl);
+        $('#behind-scene-modal').modal('show');
+    });
 
-		$('#behind-scene-modal').modal('show');
-	});
+    $('#behind-scene-modal').on('hide.bs.modal', function () {
+        $(this).find('iframe').attr('src', '');
+    });
 
-	$('#behind-scene-modal').on('hide.bs.modal', function () {
-		$(this).find('iframe').attr('src', '');
-	});
-
-	$('.js-about').click(function () {
-		$('html, body').animate({
-			scrollTop: $("#footer").offset().top
-		}, 2000);
-	});
+    $('.js-about').click(function () {
+        $('html, body').animate({
+            scrollTop: $("#footer").offset().top
+        }, 2000);
+    });
 };
 
 /***/ }),

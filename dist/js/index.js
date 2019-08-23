@@ -9992,6 +9992,22 @@ exports.default = function () {
 	return homeSlide;
 };
 
+function is_touch_device() {
+	var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
+	var mq = function mq(query) {
+		return window.matchMedia(query).matches;
+	};
+
+	if ('ontouchstart' in window || window.DocumentTouch && document instanceof DocumentTouch) {
+		return true;
+	}
+
+	// include the 'heartz' as a way to have a non matching MQ to help terminate the join
+	// https://git.io/vznFH
+	var query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join('');
+	return mq(query);
+}
+
 // mouse scroll direction;
 var SCROLLDOWN = 'mouse scrolling down';
 var SCROLLUP = 'mouse scroll up';
@@ -10085,7 +10101,9 @@ HomeSlide.prototype.initEvent = function () {
 	});
 
 	$('.js-ham-click').click(function () {
-		$('.js-slide-toggle').trigger('click');
+		if (!_this.isSlideActive) {
+			$('.js-slide-toggle').trigger('click');
+		}
 	});
 
 	$('.js-logo').click(function (e) {

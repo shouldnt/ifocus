@@ -14,9 +14,12 @@
 		position: absolute
 		left: 50%
 		top: 40px
-		max-width: 60px
+		max-height: 70px
 		transform: translateX(-50%)
 		z-index: 3
+		img 
+			height: 100%
+			max-width: unset
 	._overlay 
 		position: absolute
 		top: 0
@@ -532,6 +535,7 @@
 
 @media (max-width: 767.82px)
 	
+
 	.home-slide-container 
 		.slide-header
 			font-size: 18px
@@ -564,7 +568,12 @@
 			&:hover
 				&:after 
 					right: 29px
+	
 
+	.home-slider 
+		.logo-center
+			top: 60px
+			max-height: 45px
 
 	.page-ham
 		top: 6px

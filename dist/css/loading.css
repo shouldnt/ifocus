@@ -6,6 +6,7 @@
 	height: 100%;
 	/*background: #333;*/
 	z-index: 1000;
+	font-family: 'EB Garamond'
 }
 .loading-css .bg-top {
 	position: absolute;

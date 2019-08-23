@@ -133,7 +133,10 @@ HomeSlide.prototype.initEvent = function() {
 	})
 
 	$('.js-ham-click').click(function() {
-		$('.js-slide-toggle').trigger('click');
+		if(!_this.isSlideActive) {
+			$('.js-slide-toggle').trigger('click');
+		}
+		
 	})
 
 	$('.js-logo').click(function(e) {

@@ -49,7 +49,7 @@ export default(function() {
 	// 	$(this).find('video')[0].pause();
 	// });
 
-	$('.js-fx-target').click(function() {
+	$('.js-fx-target-2').click(function() {
 
 		var videoUrl = $(this).attr('video-url');
 		$('#behind-scene-modal').find('iframe').attr('src', createVideo(videoUrl));
@@ -64,10 +64,10 @@ export default(function() {
 		$(this).find('iframe').attr('src', '');
 	});
 
-	$('.js-about').click(function() {
-		$('html, body').animate({
-	        scrollTop: $("#footer").offset().top
-	    }, 2000);
-	})
+	// $('.js-about').click(function() {
+	// 	$('html, body').animate({
+	//         scrollTop: $("#footer").offset().top
+	//     }, 2000);
+	// })
 	
 })

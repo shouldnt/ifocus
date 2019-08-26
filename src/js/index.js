@@ -2,7 +2,7 @@
 import HomeSlide from './slide.js'
 import BehindScene from './behind-the-scene.js'
 window.currentSlide = 0;
-
+$('body').addClass('loading');
 $(document).ready(function() {
 
 	setTimeout(function() {
@@ -33,12 +33,13 @@ $(document).ready(function() {
 				})
 			}
 		})
+		$('body').removeClass('loading');
 		
 	}, 2000)
 
 	$('.home-slider')[0] && HomeSlide();
 
-	$('.behind-the-scene-page')[0] && BehindScene();
+	BehindScene();
 
 	var controller = new ScrollMagic.Controller();
 
@@ -57,8 +58,22 @@ $(document).ready(function() {
 			y: 0
 		})
 
-		var scene = new ScrollMagic.Scene({triggerElement: "#" + id, triggerHook: 0.7})
+		var scene = new ScrollMagic.Scene({triggerElement: "#" + id, triggerHook: 1})
 					.setTween(tween)
+					// .addIndicators() // add indicators (requires plugin)
+					.addTo(controller);
+
+
+		var tween2 = TweenMax.fromTo("#" + id + " .js-fx-target-2", 1, {
+			y: 200,
+			opacity: 0
+		}, {
+			opacity: 1,
+			y: 0
+		})
+
+		var scene = new ScrollMagic.Scene({triggerElement: "#" + id, triggerHook: 1})
+					.setTween(tween2)
 					// .addIndicators() // add indicators (requires plugin)
 					.addTo(controller);
 	})
@@ -111,5 +126,9 @@ $(document).ready(function() {
 
 			searchContainer.removeClass('open');
 		
-	})
+	});
+
+	setTimeout(function() {
+		$(window).resize();
+	}, 2000);
 })

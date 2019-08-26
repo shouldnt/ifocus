@@ -9847,7 +9847,7 @@ exports.default = function () {
     // 	$(this).find('video')[0].pause();
     // });
 
-    $('.js-fx-target').click(function () {
+    $('.js-fx-target-2').click(function () {
 
         var videoUrl = $(this).attr('video-url');
         $('#behind-scene-modal').find('iframe').attr('src', createVideo(videoUrl));
@@ -9859,11 +9859,11 @@ exports.default = function () {
         $(this).find('iframe').attr('src', '');
     });
 
-    $('.js-about').click(function () {
-        $('html, body').animate({
-            scrollTop: $("#footer").offset().top
-        }, 2000);
-    });
+    // $('.js-about').click(function() {
+    // 	$('html, body').animate({
+    //         scrollTop: $("#footer").offset().top
+    //     }, 2000);
+    // })
 };
 
 /***/ }),
@@ -9885,7 +9885,7 @@ var _behindTheScene2 = _interopRequireDefault(_behindTheScene);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 window.currentSlide = 0;
-
+$('body').addClass('loading');
 $(document).ready(function () {
 
 	setTimeout(function () {
@@ -9916,11 +9916,12 @@ $(document).ready(function () {
 				});
 			}
 		});
+		$('body').removeClass('loading');
 	}, 2000);
 
 	$('.home-slider')[0] && (0, _slide2.default)();
 
-	$('.behind-the-scene-page')[0] && (0, _behindTheScene2.default)();
+	(0, _behindTheScene2.default)();
 
 	var controller = new ScrollMagic.Controller();
 
@@ -9938,7 +9939,19 @@ $(document).ready(function () {
 			y: 0
 		});
 
-		var scene = new ScrollMagic.Scene({ triggerElement: "#" + id, triggerHook: 0.7 }).setTween(tween)
+		var scene = new ScrollMagic.Scene({ triggerElement: "#" + id, triggerHook: 1 }).setTween(tween)
+		// .addIndicators() // add indicators (requires plugin)
+		.addTo(controller);
+
+		var tween2 = TweenMax.fromTo("#" + id + " .js-fx-target-2", 1, {
+			y: 200,
+			opacity: 0
+		}, {
+			opacity: 1,
+			y: 0
+		});
+
+		var scene = new ScrollMagic.Scene({ triggerElement: "#" + id, triggerHook: 1 }).setTween(tween2)
 		// .addIndicators() // add indicators (requires plugin)
 		.addTo(controller);
 	});
@@ -9988,6 +10001,10 @@ $(document).ready(function () {
 
 		searchContainer.removeClass('open');
 	});
+
+	setTimeout(function () {
+		$(window).resize();
+	}, 2000);
 });
 
 /***/ }),
@@ -10077,6 +10094,7 @@ HomeSlide.prototype.init = function () {
 	_this.$images = _this.$slides.find('img.bg-img');
 	_this.videoManager = new VideoBg();
 	_this.videoManager.show(_this.current);
+	_this.videoManager.updateSize();
 	_this.textureArr = [];
 
 	TweenMax.set(_this.$slides, {
@@ -10147,6 +10165,28 @@ HomeSlide.prototype.initEvent = function () {
 		}
 	});
 
+	$('.js-works').click(function (e) {
+		e.preventDefault();
+		e.stopPropagation();
+		if (_this.isSlideActive) {
+			$('.js-slide-toggle').trigger('click');
+		}
+		$('html, body').animate({
+			scrollTop: 0
+		}, 2000);
+	});
+
+	$('.js-making-of').click(function (e) {
+		e.preventDefault();
+		e.stopPropagation();
+		if (_this.isSlideActive) {
+			$('.js-slide-toggle').trigger('click');
+		}
+		$('html, body').animate({
+			scrollTop: $("#making-of").offset().top
+		}, 2000);
+	});
+
 	$('.js-about').click(function (e) {
 		e.preventDefault();
 		e.stopPropagation();
@@ -10158,6 +10198,26 @@ HomeSlide.prototype.initEvent = function () {
 		}, 2000);
 	});
 
+	$('.js-toggle-video-link').click(function () {
+		$(this).siblings('.js-link-box').toggleClass('active');
+	});
+
+	$('.js-copy-link').click(function (e) {
+		e.preventDefault();
+
+		var copyTextarea = $(this).siblings()[0];
+
+		copyTextarea.focus();
+		copyTextarea.select();
+
+		try {
+			var successful = document.execCommand('copy');
+			var msg = successful ? 'successful' : 'unsuccessful';
+			console.log('Copying text command was ' + msg);
+		} catch (err) {
+			console.log('Oops, unable to copy');
+		}
+	});
 	_this.openMoreInfo();
 };
 
@@ -10904,6 +10964,7 @@ function VideoBg() {
 	$(window).on('resize', function () {
 		_this.updateSize();
 	});
+	$(window).resize();
 }
 VideoBg.prototype.updateSize = function () {
 	this.coverSize = coverSize(16, 9, $(window).width(), $(window).height());

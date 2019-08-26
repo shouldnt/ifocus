@@ -71,6 +71,7 @@ HomeSlide.prototype.init = function() {
 	_this.$images = _this.$slides.find('img.bg-img');
 	_this.videoManager = new VideoBg();
 	_this.videoManager.show(_this.current);
+	_this.videoManager.updateSize();
 	_this.textureArr = [];
 
 
@@ -146,6 +147,28 @@ HomeSlide.prototype.initEvent = function() {
 		}
 	})
 
+	$('.js-works').click(function(e) {
+		e.preventDefault();
+		e.stopPropagation();
+		if(_this.isSlideActive) {
+			$('.js-slide-toggle').trigger('click');
+		}
+		$('html, body').animate({
+            scrollTop: 0
+        }, 2000);
+	})
+
+	$('.js-making-of').click(function(e) {
+		e.preventDefault();
+		e.stopPropagation();
+		if(_this.isSlideActive) {
+			$('.js-slide-toggle').trigger('click');
+		}
+		$('html, body').animate({
+            scrollTop: $("#making-of").offset().top
+        }, 2000);
+	})
+
 	$('.js-about').click(function(e) {
 		e.preventDefault();
 		e.stopPropagation();
@@ -157,6 +180,27 @@ HomeSlide.prototype.initEvent = function() {
         }, 2000);
 	})
 
+	$('.js-toggle-video-link').click(function() {
+		$(this).siblings('.js-link-box').toggleClass('active');
+	})
+
+	$('.js-copy-link').click(function(e) {
+		e.preventDefault();
+
+		var copyTextarea = $(this).siblings()[0];
+
+		copyTextarea.focus();
+  		copyTextarea.select();
+
+  		try {
+		    var successful = document.execCommand('copy');
+		    var msg = successful ? 'successful' : 'unsuccessful';
+		    console.log('Copying text command was ' + msg);
+		} catch (err) {
+		    console.log('Oops, unable to copy');
+		}
+
+	})
 	_this.openMoreInfo();
 }
 
@@ -1008,6 +1052,7 @@ function VideoBg() {
 	$(window).on('resize', function() {
 		_this.updateSize();
 	})
+	$(window).resize();
 	
 }
 VideoBg.prototype.updateSize = function() {

@@ -14,12 +14,12 @@
 		position: absolute
 		left: 50%
 		top: 10vh
-		max-height: 70px
+		width: 270px
+		max-width: 100%
 		transform: translateX(-50%)
 		z-index: 3
 		img 
-			height: 100%
-			max-width: unset
+			max-width: 100%
 	._overlay 
 		position: absolute
 		top: 0
@@ -359,8 +359,8 @@
 	z-index: 200
 	.ct 
 		position: absolute
-		top: 50%
-		transform: translate(-10px, -50%)
+		top: 10px
+		transform: translate(0%, -100%)
 		left: -15px
 		padding-left: 0px
 		pointer-events: none
@@ -384,20 +384,23 @@
 	&:hover 
 		.ct 
 			opacity: 1
+			top: 0
 			overflow: visible
 			pointer-events: auto
 			visibility: visible
-			transform: translate(0px, -50%)
+			transform: translate(0%, -100%)
 
 .video-list 
 	padding-top: 50px
 	overflow: hidden
 .section-title 
 	h3 
-		font-size: 30px
+		font-size: 40px
 		font-weight: bold
 		margin-bottom: 30px
 		color: #fff
+		text-transform: uppercase
+		color: $primary-color
 .video-list-row 
 	// margin-left: -30px
 	// margin-right: -30px
@@ -513,6 +516,11 @@
 			a 
 				color: black
 
+			.share-box 
+				border-color: black
+				input 
+					color: black
+
 
 .section.logo-works
 	display: flex
@@ -522,6 +530,9 @@
 	.logo-center
 		width: 200px
 		max-width: 100%
+
+.video-list._making-of-section
+	padding-top: 50px
 
 @media (min-width: 1366px)
 	.home-slide-container 
@@ -584,6 +595,7 @@
 		&:hover 
 			.ct
 				transform: none
+				top: 15px
 
 @media (max-width: 767.82px)
 	
@@ -625,7 +637,7 @@
 	.home-slider 
 		.logo-center
 			top: 60px
-			max-height: 45px
+			width: 220px
 
 	.page-ham
 		top: 6px
@@ -651,7 +663,8 @@
 			top: 40px
 			left: 50%
 
-
+	.section-title h3 
+		font-size: 30px
 @media (max-width: 575.82px)
 	.home-slide-container 
 		.slide_title

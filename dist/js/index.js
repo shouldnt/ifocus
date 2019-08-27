@@ -10198,11 +10198,11 @@ HomeSlide.prototype.initEvent = function () {
 		}, 2000);
 	});
 
-	$('.js-toggle-video-link').click(function () {
+	$('.js-toggle-video-link').on('click', function (e) {
 		$(this).siblings('.js-link-box').toggleClass('active');
 	});
 
-	$('.js-copy-link').click(function (e) {
+	$('.js-copy-link').on('click', function (e) {
 		e.preventDefault();
 
 		var copyTextarea = $(this).siblings()[0];
@@ -10213,9 +10213,9 @@ HomeSlide.prototype.initEvent = function () {
 		try {
 			var successful = document.execCommand('copy');
 			var msg = successful ? 'successful' : 'unsuccessful';
-			console.log('Copying text command was ' + msg);
+			// console.log('Copying text command was ' + msg);
 		} catch (err) {
-			console.log('Oops, unable to copy');
+			// console.log('Oops, unable to copy');
 		}
 	});
 	_this.openMoreInfo();
@@ -10226,7 +10226,7 @@ HomeSlide.prototype.openMoreInfo = function () {
 	$('.more-info-click').click(function (e) {
 		e.preventDefault();
 
-		var $item = $(this).closest('.home-slide-container').clone();
+		var $item = $(this).closest('.home-slide-container').clone(true, true);
 
 		$item.find('.more-info, .slide_play, .bg-img, .nav-content').remove();
 

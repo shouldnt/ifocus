@@ -9826,7 +9826,7 @@ function createVideo(url) {
     if (videoObj.type == 'youtube') {
         url = 'https://www.youtube.com/embed/' + videoObj.id;
     } else if (videoObj.type == 'vimeo') {
-        url = 'player.vimeo.com/video/' + videoObj.id;
+        url = 'https://player.vimeo.com/video/' + videoObj.id;
     }
     return url;
 }

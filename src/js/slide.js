@@ -13,6 +13,8 @@ function is_touch_device() {
   var query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join('');
   return mq(query);
 }
+
+import Utils from './utils.js'
 export default function() {
 	
 	var homeSlide = new HomeSlide();
@@ -960,14 +962,14 @@ VideoFrame.prototype.initEvent = function() {
 
 		_this.iframe = _this.$container.find('iframe')[0];
 
-
+``
 		var bound = $el[0].getBoundingClientRect();
 
 		
 
 
 		var videoUrl = $(this).attr('href');
-
+		videoUrl = Utils.createVideo(videoUrl);
 		$(_this.iframe).attr('src', videoUrl);
 
 		player = new Vimeo.Player(_this.iframe);

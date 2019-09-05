@@ -10033,6 +10033,12 @@ exports.default = function () {
 	return homeSlide;
 };
 
+var _utils = __webpack_require__("./src/js/utils.js");
+
+var _utils2 = _interopRequireDefault(_utils);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function is_touch_device() {
 	var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
 	var mq = function mq(query) {
@@ -10879,10 +10885,11 @@ VideoFrame.prototype.initEvent = function () {
 
 		_this.iframe = _this.$container.find('iframe')[0];
 
+		'';
 		var bound = $el[0].getBoundingClientRect();
 
 		var videoUrl = $(this).attr('href');
-
+		videoUrl = _utils2.default.createVideo(videoUrl);
 		$(_this.iframe).attr('src', videoUrl);
 
 		player = new Vimeo.Player(_this.iframe);
@@ -10979,6 +10986,55 @@ VideoBg.prototype.show = function (index) {
 			_this.$videos[index].play();
 		}
 	});
+};
+
+/***/ }),
+
+/***/ "./src/js/utils.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = {
+	parseVideo: function parseVideo(url) {
+		// - Supported YouTube URL formats:
+		//   - http://www.youtube.com/watch?v=My2FRPA3Gf8
+		//   - http://youtu.be/My2FRPA3Gf8
+		//   - https://youtube.googleapis.com/v/My2FRPA3Gf8
+		// - Supported Vimeo URL formats:
+		//   - http://vimeo.com/25451551
+		//   - http://player.vimeo.com/video/25451551
+		// - Also supports relative URLs:
+		//   - //player.vimeo.com/video/25451551
+
+		url.match(/(http:|https:|)\/\/(player.|www.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com))\/(video\/|embed\/|watch\?v=|v\/)?([A-Za-z0-9._%-]*)(\&\S+)?/);
+
+		if (RegExp.$3.indexOf('youtu') > -1) {
+			var type = 'youtube';
+		} else if (RegExp.$3.indexOf('vimeo') > -1) {
+			var type = 'vimeo';
+		}
+
+		return {
+			type: type,
+			id: RegExp.$6
+		};
+	},
+	createVideo: function createVideo(url) {
+		// Returns an iframe of the video with the specified URL.
+		var videoObj = this.parseVideo(url);
+		var url = '';
+		if (videoObj.type == 'youtube') {
+			url = 'https://www.youtube.com/embed/' + videoObj.id;
+		} else if (videoObj.type == 'vimeo') {
+			url = 'https://player.vimeo.com/video/' + videoObj.id;
+		}
+		return url;
+	}
 };
 
 /***/ }),

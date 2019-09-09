@@ -32,9 +32,9 @@ export default function() {
 		$(this).removeClass('hover');
 		$(this).find('video')[0].pause();
 	});
-	$('.js-fx-target').on('click', function() {
-		$('.js-slide-toggle').trigger('click');
-	})
+	// $('.js-fx-target').on('click', function() {
+	// 	// $('.js-slide-toggle').trigger('click');
+	// })
 
 	return homeSlide; 
 }

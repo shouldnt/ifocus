@@ -52,6 +52,8 @@ export default(function() {
 	$('.js-fx-target-2').click(function() {
 
 		var videoUrl = $(this).attr('video-url');
+        // var win = window.open(videoUrl, '_blank');
+        // win.focus();
 		$('#behind-scene-modal').find('iframe').attr('src', createVideo(videoUrl));
 
 
@@ -60,6 +62,18 @@ export default(function() {
 
 	});
 
+    $('.js-video-link').click(function() {
+
+        var videoUrl = $(this).attr('video-url');
+        var win = window.open(videoUrl, '_blank');
+        win.focus();
+        // $('#behind-scene-modal').find('iframe').attr('src', createVideo(videoUrl));
+
+
+        // $('#behind-scene-modal').modal('show');
+
+
+    });
 	$('#behind-scene-modal').on('hide.bs.modal', function() {
 		$(this).find('iframe').attr('src', '');
 	});

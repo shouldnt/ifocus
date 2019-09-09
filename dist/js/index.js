@@ -9850,11 +9850,24 @@ exports.default = function () {
     $('.js-fx-target-2').click(function () {
 
         var videoUrl = $(this).attr('video-url');
+        // var win = window.open(videoUrl, '_blank');
+        // win.focus();
         $('#behind-scene-modal').find('iframe').attr('src', createVideo(videoUrl));
 
         $('#behind-scene-modal').modal('show');
     });
 
+    $('.js-video-link').click(function () {
+
+        var videoUrl = $(this).attr('video-url');
+        var win = window.open(videoUrl, '_blank');
+        win.focus();
+        // $('#behind-scene-modal').find('iframe').attr('src', createVideo(videoUrl));
+
+
+        // $('#behind-scene-modal').modal('show');
+
+    });
     $('#behind-scene-modal').on('hide.bs.modal', function () {
         $(this).find('iframe').attr('src', '');
     });
@@ -10026,9 +10039,9 @@ exports.default = function () {
 		$(this).removeClass('hover');
 		$(this).find('video')[0].pause();
 	});
-	$('.js-fx-target').on('click', function () {
-		$('.js-slide-toggle').trigger('click');
-	});
+	// $('.js-fx-target').on('click', function() {
+	// 	// $('.js-slide-toggle').trigger('click');
+	// })
 
 	return homeSlide;
 };

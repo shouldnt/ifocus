@@ -119,6 +119,7 @@ HomeSlide.prototype.initEvent = function() {
 		$('body').addClass('home-page');
 		$('.site-header').removeClass('_black')
 		_this.isSlideActive = true;
+		console.log(window.currentSlide, _this.videoManager);
 		_this.animateIn(window.currentSlide);
 	})
 
@@ -595,7 +596,6 @@ HomeSlide.prototype.animateOut = function() {
 	_this.animating = true;
 	var current = _this.current;
 	window.currentSlide = _this.current;
-
 	_this.mat.uniforms.uTexture0.value = _this.textureArr[1];
 	_this.mat.uniforms.uTexture1.value = _this.textureArr[1];
 
@@ -677,6 +677,7 @@ HomeSlide.prototype.animateIn = function(index) {
 
 	_this.videoManager.hide(current);
 	_this.videoManager.show(index);
+	_this.videoManager.updateSize();
 
 	var currentSlideEl = _this.$slides[current];
 	currentSlideEl.classList.remove('slide-active');

@@ -48,7 +48,17 @@ export default(function() {
 	// 	$(this).removeClass('hover');
 	// 	$(this).find('video')[0].pause();
 	// });
+    $('.js-video-hover').on('mouseenter', function() {
 
+     $(this).addClass('hover');
+     $(this).find('video')[0].play();
+    });
+    $('.js-video-hover').on('mouseleave', function() {
+
+     $(this).removeClass('hover');
+     $(this).find('video')[0].pause();
+    });
+    
 	$('.js-fx-target-2').click(function() {
 
 		var videoUrl = $(this).attr('video-url');

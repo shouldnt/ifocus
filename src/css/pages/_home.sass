@@ -172,7 +172,7 @@
 		letter-spacing: 2px
 		text-decoration: underline
 		margin-bottom: 30px
-		display: block
+		display: none!important
 	.slide_play
 		position: absolute
 		display: block
@@ -621,22 +621,23 @@
 			font-size: 18px
 		.slide_title 
 			margin-bottom: 17px
+			padding-right: 120px
 			h2
 				font-size: 36px
 	.home-slide-container 
 		padding-right: 0
 		.slide_description 
+			padding-right: 120px
 			p
-				display: none
+				// display: none
 
 		.slide_share
-			display: none
+			// display: none
 
 		.slide_play
 			width: 100px
 			height: 100px
 			top: 0
-			position: relative
 			&:before 
 				width: 100px
 				height: 100px
@@ -684,11 +685,11 @@
 @media (max-width: 575.82px)
 	.home-slide-container 
 		.slide_title
-			h2 
-				font-size: 28px
-		
-
-
+			h2
+				font-size: 20px
+		.slide_description 
+			p
+				font-size: 14px
 	.video-list
 		padding-top: 50px
 	
@@ -712,3 +713,29 @@
 			top: 24px
 			h2
 				font-size: 14px
+
+
+
+@media (max-width: 400px)
+	.home-slider .logo-center 
+		text-align: center
+		top: 70px
+		img
+			max-width: 150px
+	.home-slide-container 
+		.slide_play 
+			width: 60px
+			height: 60px
+			span 
+				font-size: 10px
+			&:before 
+				width: 60px
+				height: 60px
+			&:after 
+				right: 15px
+				width: 8px
+				height: 8px
+		.slide_title 
+			padding-right: 70px
+		.slide_description
+			padding-right: 70px

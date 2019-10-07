@@ -1,10 +1,12 @@
 
 import HomeSlide from './slide.js'
 import BehindScene from './behind-the-scene.js'
+import Utils from './utils.js'
 window.currentSlide = 0;
 $('body').addClass('loading');
 $(document).ready(function() {
 
+	Utils.isMobileBrowser() && $('html').addClass('isMobile');
 	setTimeout(function() {
 		$('.loading-css').addClass('active');
 		TweenMax.to('.loading-bar', .5, {

@@ -6,7 +6,7 @@ window.currentSlide = 0;
 $('body').addClass('loading');
 $(document).ready(function() {
 
-	Utils.isMobileBrowser() && $('html').addClass('isMobile');
+	Utils.isMobileBrowser() && screen.orientation.lock('portrait');
 	setTimeout(function() {
 		$('.loading-css').addClass('active');
 		TweenMax.to('.loading-bar', .5, {

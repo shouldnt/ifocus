@@ -9915,7 +9915,7 @@ window.currentSlide = 0;
 $('body').addClass('loading');
 $(document).ready(function () {
 
-	_utils2.default.isMobileBrowser() && $('html').addClass('isMobile');
+	_utils2.default.isMobileBrowser() && screen.orientation.lock('portrait');
 	setTimeout(function () {
 		$('.loading-css').addClass('active');
 		TweenMax.to('.loading-bar', .5, {
